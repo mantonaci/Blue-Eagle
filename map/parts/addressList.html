@@ -1,0 +1,49 @@
+<div>
+    <my-maps id="map-canvas"></my-maps>
+    <div class>
+        <div style="margin-bottom: 15px;">
+            <span><b>È stato selezionato l'indirizzo:</b> {{addressCorrente}}</span> 
+            <button type="button"
+                         class="btn btn-info btn-sm" 
+                         data-toggle="modal" 
+                         data-target="#myModal">More info
+            </button>
+        </div>
+        <table class="table table-condensed">
+        <tr ng-repeat="adr in addressLst | filter: query">
+            <td>{{adr.Nome}}</td>
+            <td><a href="#/app/{{adr.Indirizzo}}">{{adr.Indirizzo}}</a>
+        </tr>
+        </table>
+    </div>
+</div>
+
+
+<div class="modal fade" 
+     id="myModal" 
+     tabindex="-1" 
+     role="dialog" 
+     aria-labelledby="myModalLabel" 
+     aria-hidden="true">
+  <div class="modal-dialog" style="position: absolute;  left: 660px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" 
+                class="close" 
+                data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">{{objCorr.Nome}}</h4>
+      </div>
+      <div class="modal-body">
+        <b>Indirizzo: {{objCorr.Indirizzo}}</b><br>
+        <b>Telefono: {{objCorr.Telefono}}</b><br>
+          <b>Sito: <a href="{{objCorr.Sito}}">{{objCorr.Sito}}</a></b><br>
+      </div>
+      <div class="modal-footer">
+        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>-->
+      </div>
+    </div>
+  </div>
+</div>

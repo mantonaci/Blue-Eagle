@@ -1,0 +1,28 @@
+<!doctype html>
+<html ng-app="mappaRomaApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Mappatura Roma</title>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?
+                 key=AIzaSyDOrdu69aPT33infwX44vDW0tOQy6kEc_U&sensor=false">
+    </script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script> 
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controller.js"></script>
+    <script src="scripts/service.js"></script>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+      <link rel="stylesheet" href="modifiche.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h3 class="text-muted">Mappatura Roma</h3>
+      </div>
+      </div>
+    </div>
+    <div ng-view></div>
+</body>
+</html>
