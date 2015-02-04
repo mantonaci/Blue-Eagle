@@ -39,7 +39,54 @@
 					<div id="main">
 						
 						<!-- Me -->
-							<article id="me" class="panel">
+                          <article id="me" class="panel">
+                            <style type="text/css">
+                              html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+                            </style>
+                            <script type="text/javascript"
+                              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBFxqMJo1UeHYhIZ-tZpn4gDQwii31Gbc">
+                            </script>
+                            <script type="text/javascript">
+                              function initialize() {
+                                var mapOptions = {
+                                  center: { lat: 41.9058009, lng: 12.5470133},
+                                  zoom: 13
+                                };
+                                var map = new google.maps.Map(document.getElementById('map-canvas'),
+                                    mapOptions);
+                                
+                                var markers = [];
+                                /*markers[0] = new google.maps.Marker({
+                                    position: { lat: 41.9058009, lng: 12.5470133},
+                                    map: map,
+                                    title:"Hello World2!"
+                                });    */    
+                                
+                                var neighborhoods = [
+                                  new google.maps.LatLng(52.511467, 13.447179),
+                                  new google.maps.LatLng(52.549061, 13.422975),
+                                  new google.maps.LatLng(52.497622, 13.396110),
+                                  new google.maps.LatLng(52.517683, 13.394393)
+                                ];
+                                function addMarker(position) {
+                                  markers.push(new google.maps.Marker({
+                                    position: position,
+                                    map: map,
+                                    animation: google.maps.Animation.DROP
+                                  }));
+                                }
+                                for (var i = 0; i < neighborhoods.length; i++) {
+                                  window.setTimeout(function() {
+                                    addMarker(neighborhoods[i]);
+                                  }, i * 200);
+                                }
+                                
+                              }
+                              google.maps.event.addDomListener(window, 'load', initialize);
+                            </script>
+                            <div style="float:left; min-width:120px"><button>ok</button></div>
+                            <div id="map-canvas"></div>
+<!--
 								<header>
 									<h1>Jane Doe</h1>
 									<p>Senior Astral Projectionist</p>
@@ -48,6 +95,7 @@
 									<span class="arrow icon fa-chevron-right"><span>See my work</span></span>
 									<img src="images/me.jpg" alt="" />
 								</a>
+-->
 							</article>
 
 						<!-- Work --> 
